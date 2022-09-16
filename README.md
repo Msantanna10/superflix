@@ -17,6 +17,6 @@ To use this theme properly, you need to follow some simple steps:
 ## Conclusion
 You're all set! It's important to consider that not all requests were possible when using this free API. However, it's very clear that most of it works in a very beautiful custom template and that we could do even more with other APIs.
 
-You can also check this [online demo](https://www.domamo.com.br/superflix/).
+You can also check this [online demo](https://www.domamo.com.br/superflix/){:target="_blank"}.
 
 Have fun!
