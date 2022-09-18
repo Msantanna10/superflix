@@ -1,7 +1,7 @@
 <?php
 ##################### SCRIPTS
 function custom_script_frontend() {
-    global $moviesPageID, $peoplePageID;
+    global $moviesPageID, $peoplePageID, $SearchPageID;
 
     // De-register the built in jQuery
     wp_deregister_script('jquery');
@@ -49,16 +49,23 @@ function custom_script_frontend() {
             'ajax_url' => admin_url('admin-ajax.php'),
         ]);
     }
-    // If it's a preson details page
+    // If it's a person details page
     if(is_page($peoplePageID) && get_query_var('person_id')) {
         wp_enqueue_style( 'slick-slider-external', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.0', 'all' );
         wp_enqueue_script( 'slick-slider' ); 
         wp_enqueue_script('single-person-slick-slider', get_template_directory_uri() .'/js/person-details/slick-slider.js', array('jquery','slick-slider'), null, true);
     }
-    // If it's the people listing page
+    // If it's a people listing page
     if(is_page($peoplePageID) && !get_query_var('person_id')) {
         wp_enqueue_script('people-list', get_template_directory_uri() .'/js/people-listing/filter.js?' . date('l jS \of F Y h:i:s A'), array('jquery'), null, true);
         wp_localize_script('people-list', 'objVars', [
+            'ajax_url' => admin_url('admin-ajax.php'),
+        ]);
+    }
+    // If it's the global search page
+    if(is_page($SearchPageID)) {
+        wp_enqueue_script('global-search', get_template_directory_uri() .'/js/global-search/search.js?' . date('l jS \of F Y h:i:s A'), array('jquery'), null, true);
+        wp_localize_script('global-search', 'objVars', [
             'ajax_url' => admin_url('admin-ajax.php'),
         ]);
     }

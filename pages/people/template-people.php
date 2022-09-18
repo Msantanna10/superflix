@@ -5,26 +5,21 @@ Template Name: People Listing
 get_header();
 
 $personID = get_query_var('person_id');
-global $apiKEY;
-
-// RETRIEVES DATA
-$currentPerson = wp_remote_get( 'https://api.themoviedb.org/3/person/'.$personID.'?api_key='.$apiKEY.'&language=en-US&append_to_response=movie_credits,images' ); // WP function for external APIs
-$currentPerson = wp_remote_retrieve_body( $currentPerson ); // Gets body
-$currentPerson = json_decode($currentPerson, true); // Array decode
+global $apiKEY, $globalCurrentPerson; // $globalCurrentPerson is the request from the header.php (variable to avoid double requests)
 
 // IF IT HAS A VALID NAME, IT'S A PERSON DETAILS PAGE
-if(!empty($currentPerson['name'])) {
+if(!empty($globalCurrentPerson['name'])) {
     // PERSON DETAILS: Pass variables to template part
     $args = array(
-        'profile_path' => $currentPerson['profile_path'],
-        'name' => $currentPerson['name'],
-        'birthday' => $currentPerson['birthday'],
-        'place_of_birth' => $currentPerson['place_of_birth'],
-        'deathday' => $currentPerson['deathday'],
-        'popularity' => $currentPerson['popularity'],
-        'biography' => $currentPerson['biography'],
-        'images' => array_slice($currentPerson['images']['profiles'], 0, 10), // Limit to 10 to avoid request limits
-        'cast' => array_slice($currentPerson['movie_credits']['cast'], 0, 5), // Limit to 5 to avoid request limits
+        'profile_path' => $globalCurrentPerson['profile_path'],
+        'name' => $globalCurrentPerson['name'],
+        'birthday' => $globalCurrentPerson['birthday'],
+        'place_of_birth' => $globalCurrentPerson['place_of_birth'],
+        'deathday' => $globalCurrentPerson['deathday'],
+        'popularity' => $globalCurrentPerson['popularity'],
+        'biography' => $globalCurrentPerson['biography'],
+        'images' => array_slice($globalCurrentPerson['images']['profiles'], 0, 10), // Limit to 10 to avoid request limits
+        'cast' => array_slice($globalCurrentPerson['movie_credits']['cast'], 0, 5), // Limit to 5 to avoid request limits
     );
     // Load content for people details
     get_template_part( 'pages/people/personDetails', null, $args );

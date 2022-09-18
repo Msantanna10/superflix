@@ -9,6 +9,7 @@ include_once( get_stylesheet_directory() .'/inc/functions-ajax-movie-list.php');
 include_once( get_stylesheet_directory() .'/inc/functions-ajax-people-list.php');
 include_once( get_stylesheet_directory() .'/inc/functions-ajax-movie-title.php');
 include_once( get_stylesheet_directory() .'/inc/functions-ajax-favorites.php');
+include_once( get_stylesheet_directory() .'/inc/functions-ajax-global-search.php');
 include_once( get_stylesheet_directory() .'/inc/functions-disable.php');
 include_once( get_stylesheet_directory() .'/inc/functions-redirects.php');
 include_once( get_stylesheet_directory() .'/inc/functions-frontend-scripts-css.php');

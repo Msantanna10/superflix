@@ -12,6 +12,7 @@ function super_options_page_settings() {
   register_setting( 'super_options_page_settings_group', 'options_page_login' );
   register_setting( 'super_options_page_settings_group', 'options_page_register' );
   register_setting( 'super_options_page_settings_group', 'options_page_favorites' );
+  register_setting( 'super_options_page_settings_group', 'options_page_search' );
 }
 
 function super_options_page_cb(){ 
@@ -32,6 +33,7 @@ $loopPages = get_pages();
                     $loginId = esc_attr( get_option('options_page_movies') );
                     ?>
                     <select name="options_page_movies" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
                       <?php foreach($loopPages as $page) { ?>
                         <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
                       <?php } ?>
@@ -47,6 +49,7 @@ $loopPages = get_pages();
                     $loginId = esc_attr( get_option('options_page_people') );
                     ?>
                     <select name="options_page_people" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
                       <?php foreach($loopPages as $page) { ?>
                         <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
                       <?php } ?>
@@ -62,6 +65,7 @@ $loopPages = get_pages();
                     $loginId = esc_attr( get_option('options_page_login') );
                     ?>
                     <select name="options_page_login" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
                       <?php foreach($loopPages as $page) { ?>
                         <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
                       <?php } ?>
@@ -77,6 +81,7 @@ $loopPages = get_pages();
                     $loginId = esc_attr( get_option('options_page_register') );
                     ?>
                     <select name="options_page_register" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
                       <?php foreach($loopPages as $page) { ?>
                         <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
                       <?php } ?>
@@ -92,6 +97,23 @@ $loopPages = get_pages();
                     $loginId = esc_attr( get_option('options_page_favorites') );
                     ?>
                     <select name="options_page_favorites" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
+                      <?php foreach($loopPages as $page) { ?>
+                        <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
+                      <?php } ?>
+                    </select>
+                    <br>                    
+                    <span class="description" style="font-style: italic;margin-top: 5px;display: block;">Select one option from the list</span>
+                  </td>                
+                </tr>
+                <tr valign="top">
+                  <th scope="row">Global Search page</th>
+                  <td>
+                    <?php
+                    $loginId = esc_attr( get_option('options_page_search') );
+                    ?>
+                    <select name="options_page_search" style="width: 100%;max-width: 250px;">
+                      <option value="">-</option>
                       <?php foreach($loopPages as $page) { ?>
                         <option value="<?php echo $page->ID; ?>" <?php if($loginId == $page->ID) { echo 'selected'; } ?>><?php echo $page->post_title; ?></option>
                       <?php } ?>

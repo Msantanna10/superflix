@@ -283,7 +283,7 @@ p.error {padding: 0px 15px;font-style: italic;font-size: 19px;margin: 10px 0px;d
 .pageList .filter .columns #keyword {padding-right: 15px;}
 .pageList .filter .columns #dates {padding-left: 15px;}
 .pageList .filter .columns #keyword .wrap {position: relative;}
-.pageList .filter .columns #keyword .wrap .options {position: absolute;top: 33px;background-color: white;border-radius: 0px 0px 10px 10px;width: 100%;padding: 15px 15px 15px 15px;opacity: 0;visibility: hidden;}
+.pageList .filter .columns #keyword .wrap .options {position: absolute;top: 33px;background-color: white;border-radius: 0px 0px 10px 10px;width: 100%;padding: 15px 15px 15px 15px;opacity: 0;visibility: hidden;z-index: 1;}
 .pageList .filter .columns #keyword .wrap .options.open {opacity: 1;visibility: visible;}
 .pageList .filter .columns #keyword .wrap .options a, .pageList .filter .columns #keyword .wrap .options p {color: black;font-size: 14px;font-style: italic;margin-top: 10px;display: block;}
 .pageList .filter .columns #keyword .wrap .options p.loadText {margin: 0px}
@@ -311,6 +311,33 @@ p.error {padding: 0px 15px;font-style: italic;font-size: 19px;margin: 10px 0px;d
 .postForm .success p {text-align: center;color: white;font-weight: 500;line-height: 23px;}
 .postForm .success p a {font-weight: 500;text-decoration: underline;}
 .registerPage .postForm .container {max-width: 670px;}
+
+.searchPage .content {display: block;}
+.searchPage .body {margin-top: 55px;}
+.searchPage .body .head .field {position: relative;}
+.searchPage .body .head input[type="text"] {font-size: 18px;padding: 14px 20px;padding-right: 180px;}
+.searchPage .body .head input[type="submit"] {background-color: var(--red);border: 0px;position: absolute;right: 5px;max-width: 155px;top: 50%;transform: translateY(-50%);color: white;font-weight: 700;font-size: 18px;height: 82%;display: grid;align-content: center;padding: 10px 15px;pointer-events: all;opacity: 1;}
+.searchPage .body .head .blockSearch input[type="submit"] {opacity: 0.5;pointer-events: none;}
+.searchPage .body .head input[type="submit"]:hover {background-color: var(--darkred);}
+.searchPage .body .head #desc {display: block;font-style: italic;margin-top: 6px;}
+.searchPage .body .results > .in {margin-top: 58px;padding-top: 46px;border-top: 1px solid #4d4d4d;}
+.searchPage .body .results > .in > .error {padding:0px}
+.searchPage .body .results > .in h2 {line-height: 22px;}
+.searchPage .body .results > .in h2 span {font-size: 19px;font-style: italic;font-size: 19px;font-style: italic;}
+.searchPage .body .results .in .searchCards {display: flex;flex-wrap: wrap;margin-left: -15px;margin-right: -15px;margin-top: 15px;}
+.searchPage .body .results .in .searchCards .card {width: 100%;max-width: calc((100%/5) - 30px);float: left;margin: 15px;}
+.searchPage .body .results .in .searchCards .card .in {display: block;}
+.searchPage .body .results .in .searchCards .card .in .head {border-radius: 10px;position: relative;overflow: hidden;}
+.searchPage .body .results .in .searchCards .card .in .head .imgBg {height: 260px;background-position: center;background-size: cover;border-radius: 15px;}
+.searchPage .body .results .in .searchCards .card .in .head .shadow {background: rgb(255,255,255);background: linear-gradient(180deg, rgba(255,255,255,0) 47%, rgba(0,0,0,0.5830532896752452) 79%);padding: 12px;position: absolute;top: 0;width: 100%;height: 100%;}
+.searchPage .body .results .in .searchCards .card .in .infos {padding: 12px;}
+.searchPage .body .results .in .searchCards .card .in .infos h2 {font-size: 18px;line-height: 22px;}
+.searchPage .body .results .in .searchCards .card .in .infos p {font-size: 15px;display: flex;justify-content: space-between;line-height: 15px;margin-top: 15px;}
+.searchPage .body .results .in .searchCards .card .in .infos b {text-transform: uppercase;font-size: 12px;font-weight: 600;}
+.searchPage .body .results .in .searchCards .card .in:hover .imgBg {transform: scale(1.1);}
+.searchPage .body .results .in .searchCards .card #cta {text-align: center;display: block;background-color: var(--red);border-radius: 10px;padding: 10px 10px;font-weight: 600;font-size: 15px;margin-top: 12px;}
+.searchPage .body .results .wrapper .singleWrapper:not(:first-child) {border-top: 1px solid #4d4d4d;margin-top: 45px;padding-top: 40px;}
+
 
 ul.links {margin-top: 40px;}
 ul.links li {list-style: none;margin-top: 7px;}
@@ -359,6 +386,10 @@ ul.links li a {display: block;font-weight: 600;}
   .recommended {padding-top: 60px;}
   .recommended h2 {text-align: center;}
   .movieCards .cardIn h2 {text-align: left;}
+  .searchPage .body .results .in .searchCards .card {max-width: calc((100%/2) - 15px);margin: 7.5px;}
+  .searchPage .body .results .wrapper {max-width: 435px;margin-left: auto;margin-right: auto;}
+  .searchPage .body .results .in .searchCards .card .in .head .imgBg {height: 265px;}
+  .searchPage .body .results .in .searchCards {margin-left: -7px;margin-right: -7px;}
 }
 @media screen and (max-width: 850px) {
   .movieCards .cardIn .head .imgBg {height: 36vw;}
@@ -391,4 +422,6 @@ ul.links li a {display: block;font-weight: 600;}
   .pageDetails .divisionRight .in .actorCards .cardIn a .imgBg {height: 190px;}
   .recommended .movieCards:not(.slick-initialized) .card {max-width: calc((100%/1) - 30px);}
   .recommended .movieCards:not(.slick-initialized) {max-width: 255px;}
+  .searchPage .body .head input[type="submit"] {max-width: 100px;}
+  .searchPage .body .head input[type="text"] {padding-right: 120px;}
 }
