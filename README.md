@@ -1,6 +1,8 @@
 # Superflix
 
-To use this theme properly, you need to follow some simple steps:
+https://www.domamo.com.br/superflix/
+
+You'll find a demo link belowTo use this theme properly, you need to follow some simple steps:
 
 ## Install the theme
 * Download the ZIP file and upload it as a new Wordpress theme
@@ -19,7 +21,5 @@ You're all set! It's important to consider that not all requests were possible w
 
 - In addition to that, there are also comments in the files to help you understand how things are working
 - Custom tab titles and meta tags are working for SEO
-
-You can also check this [online demo](https://www.domamo.com.br/superflix/).
 
 Have fun!
